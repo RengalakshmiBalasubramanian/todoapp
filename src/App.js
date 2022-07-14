@@ -7,9 +7,9 @@ import React from "react"
 //js having jsx elements as a return
 
 function App() {
-//use state functional hook from React Name Space
-//It returns an array where we getState (to storing data) and setState (updating state)  
-//by array destructing we get getState and setState
+  //use state functional hook from React Name Space
+  //It returns an array where we getState (to storing data) and setState (updating state)  
+  //by array destructing we get getState and setState
   const [todos, setTodos] = React.useState(
     [
       {
@@ -22,7 +22,23 @@ function App() {
       }
     ]
   )
+const [title,setTitle] = React.useState("")
+const [description,setDescription] = React.useState("")
+const handleChange = (event) =>{
+  const {name,value} = event.target
+  setTitle
+} 
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(event.target)
+    
+    setTodos([...todos,{
+      [name]:value  
+    }])
+    console.log(todos)
+  }
+  
   //returing jsx 
   return (
     //className to style function
@@ -30,12 +46,12 @@ function App() {
       {/*
         using todolist component to display multiple todos by sending
         todos state as property to todos
-       */}  
-      <Todolist todos={todos}/>
+       */}
+      <Todolist todos={todos} />
       {/*
         display Addtodo form component
       */}
-      <Addtodo />
+      <Addtodo handleSubmit={handleSubmit} />
     </div>
   );
 }

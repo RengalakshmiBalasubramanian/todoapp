@@ -10,8 +10,7 @@ import { Form, Button, Container } from 'react-bootstrap'
 function Edittodo() {
     return (
         <div>
-            <Container>
-            
+            <Container>            
             <h1 style={{textAlign:"center"}}> Edit Todo</h1>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
